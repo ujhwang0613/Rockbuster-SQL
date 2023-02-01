@@ -1,0 +1,13 @@
+A SQL query with multiple joins
+Used to find the top film genre by total revenue. 
+
+SELECT F.name, 
+      SUM(D.amount) AS total_revenue
+FROM film A
+INNER JOIN inventory B ON A.film_id = B.film_id
+INNER JOIN rental C ON B.inventory_id = C.inventory_id
+INNER JOIN payment D ON C.rental_id = D.rental_id
+INNER JOIN film_category E ON A.film_id = E.film_id
+INNER JOIN category F ON E.category_id = F.category_id
+GROUP BY F.name
+ORDER By total_revenue DESC;
