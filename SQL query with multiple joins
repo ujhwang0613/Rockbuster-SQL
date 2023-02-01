@@ -1,5 +1,4 @@
-A SQL query with multiple joins
-Used to find the top film genre by total revenue. 
+-- A SQL query with multiple joins used to find the top film genre by total revenue. 
 
 SELECT F.name, 
       SUM(D.amount) AS total_revenue
